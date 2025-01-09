@@ -3,7 +3,9 @@ package eus.birt.adavila.main;
 import java.util.Scanner;
 
 import Servicios.PasajeroServ;
+import Servicios.ReservaServ;
 import Servicios.ConductorServ;
+import Servicios.ViajeServ;
 
 
 public class MainApp {
@@ -23,10 +25,12 @@ public class MainApp {
 				}
 				case 2:{
 					System.out.println("Has elegido Crear viaje");
+					ViajeServ.crearViaje(leerTeclado);
 					break;
 				}
 				case 3:{
 					System.out.println("Has elegido Buscar viajes");
+					ViajeServ.buscarViaje(leerTeclado);
 					break;
 				}
 				case 4:{
@@ -36,14 +40,17 @@ public class MainApp {
 				}
 				case 5:{
 					System.out.println("Has elegido Crear reserva");
+					ReservaServ.crearReserva(leerTeclado);
 					break;
 				}
 				case 6:{
 					System.out.println("Has elegido Cancelar reserva");
+					ReservaServ.borrarReserva(leerTeclado);
 					break;
 				}
 				case 7:{
 					System.out.println("Has elegido Listar viajes");
+					ViajeServ.listarViajes();
 					break;
 				}
 				case 8:{

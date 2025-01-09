@@ -32,7 +32,7 @@ public class Reserva {
 	
 	@ManyToOne
 	@JoinColumn(name="viaje_id")
-	private Viaje viajeId;
+	private Viaje viaje;
 	
 	public Reserva() {}
 
@@ -46,7 +46,7 @@ public class Reserva {
 		this.fechaReserva = fechaReserva;
 		this.numPlazas = numPlazas;
 		this.pasajeroId = pasajeroId;
-		this.viajeId = viajeId;
+		this.viaje = viajeId;
 	}
 
 	public int getId() {
@@ -82,17 +82,17 @@ public class Reserva {
 	}
 
 	public Viaje getViajeId() {
-		return viajeId;
+		return viaje;
 	}
 
 	public void setViajeId(Viaje viajeId) {
-		this.viajeId = viajeId;
+		this.viaje = viajeId;
 	}
 
 	@Override
 	public String toString() {
 		return "Reserva [id=" + id + ", fechaReserva=" + fechaReserva + ", numPlazas=" + numPlazas + ", pasajeroId="
-				+ pasajeroId + ", viajeId=" + viajeId + "]";
+				+ pasajeroId + ", viajeId=" + viaje + "]";
 	}
 	
 	

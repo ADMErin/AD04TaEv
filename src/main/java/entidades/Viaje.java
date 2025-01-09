@@ -41,7 +41,7 @@ public class Viaje {
 	@JoinColumn (name = "conductor_id")
 	private Conductor conductor;
 	
-	@OneToMany (mappedBy="viaje", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
+	@OneToMany (cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
 	//se excluye CascadeType.REMOVE
 	List <Reserva> reservas = new ArrayList<>();
 	
@@ -60,6 +60,7 @@ public class Viaje {
 		this.fechaHora = fechaHora;
 		this.plazas = plazas;
 		this.conductor = conductorId;
+		
 	}
 
 	public int getId() {
@@ -105,7 +106,7 @@ public class Viaje {
 	@Override
 	public String toString() {
 		return "Viaje [id=" + id + ", destino=" + destino + ", origen=" + origen + ", fechaHora=" + fechaHora
-				+ ", plazas=" + plazas + ", conductor=" + conductor + ", reservas=" + reservas + "]";
+				+ ", plazas=" + plazas + "]";
 	}
 
 

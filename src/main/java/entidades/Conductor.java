@@ -27,7 +27,8 @@ public class Conductor {
 	@Column(name="vehiculo")
 	private String vehiculo;
 	
-	@OneToMany (mappedBy="conductor", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
+	@OneToMany (cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
+	@JoinColumn(name="conductor_id")
 	//se excluye CascadeType.REMOVE
 	List <Viaje> viajes = new ArrayList<>();
 
@@ -64,7 +65,8 @@ public class Conductor {
 	public void setVehiculo(String vehiculo) {
 		this.vehiculo = vehiculo;
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return "ConductorEntidad [id=" + id + ", nombre=" + nombre + ", vehiculo=" + vehiculo + "]";
