@@ -1,5 +1,6 @@
 package Servicios;
 
+
 import java.util.Date;
 import java.util.Scanner;
 
@@ -71,7 +72,7 @@ public class ReservaServ {
         }
 	}
 	public static void borrarReserva(Scanner leerTeclado) {
-		Date fecha = new Date();
+
 		System.out.print("Introduce el ID de la reserva: ");
 		int reservaId = leerTeclado.nextInt();
 				

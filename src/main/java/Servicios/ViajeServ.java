@@ -1,6 +1,8 @@
 package Servicios;
 
 import java.util.Scanner;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -27,9 +29,7 @@ public class ViajeServ {
 		System.out.print("Introduce el origen: ");
 		String origen = leerTeclado.nextLine();
 		
-		//System.out.print("Introduce fecha y hora: ");
-		//String fecha = leerTeclado.nextLine();
-		Date fecha = new Date();
+		Date fecha = pedirFecha(leerTeclado);
 		
 		System.out.print("Introduce el número de plazas: ");
 		int plazas = leerTeclado.nextInt();
@@ -76,6 +76,7 @@ public class ViajeServ {
         	sessionFactory.close();
         }
 	}
+	
 	public static void listarViajes() {
 		
         StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
@@ -115,11 +116,7 @@ public class ViajeServ {
         }
 	}
 	
-	private static void mostrarViajes(List<Viaje> viajes) {
-		for(Viaje tempViaje : viajes) {
-			System.out.println(tempViaje);
-		}
-	}
+
 	
 	public static void buscarViaje(Scanner leerTeclado) {
 		
@@ -167,4 +164,29 @@ public class ViajeServ {
         	sessionFactory.close();
         }
 	}
+	
+	public static Date pedirFecha(Scanner leerTeclado) {
+		
+		System.out.print("Introduce fecha y hora(YYYY-MM-DD hh:mm:ss): ");
+		String fecha = leerTeclado.nextLine();
+		
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		Date fechaDate = null;
+		
+		try {
+			fechaDate = formato.parse(fecha);
+		} catch(ParseException e) {
+			e.printStackTrace();
+			System.out.println("Formato de fecha incorrecto");
+		}
+		return fechaDate;
+	}
+	
+	private static void mostrarViajes(List<Viaje> viajes) {
+		for(Viaje tempViaje : viajes) {
+			System.out.println(tempViaje);
+		}
+	}
 }
+
+
