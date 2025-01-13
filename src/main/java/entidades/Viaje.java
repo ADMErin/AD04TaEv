@@ -42,7 +42,6 @@ public class Viaje {
 	private Conductor conductor;
 	
 	@OneToMany (cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
-	//se excluye CascadeType.REMOVE
 	List <Reserva> reservas = new ArrayList<>();
 	
 	public Viaje() {}

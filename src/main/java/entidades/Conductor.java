@@ -29,7 +29,6 @@ public class Conductor {
 	
 	@OneToMany (cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
 	@JoinColumn(name="conductor_id")
-	//se excluye CascadeType.REMOVE
 	List <Viaje> viajes = new ArrayList<>();
 
 	public Conductor() {}

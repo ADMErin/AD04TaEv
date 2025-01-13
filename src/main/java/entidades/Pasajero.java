@@ -26,10 +26,9 @@ public class Pasajero {
 	@Column(name="email")
 	private String email;
 	
-	/*@OneToMany (mappedBy="pasajero", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
-	//se excluye CascadeType.REMOVE
+	@OneToMany (cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH })
 	List <Reserva> reservas = new ArrayList<>();
-	*/
+	
 	public Pasajero() {}
 
 	/**

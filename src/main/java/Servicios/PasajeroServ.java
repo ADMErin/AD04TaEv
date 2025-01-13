@@ -9,7 +9,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import entidades.Conductor;
 import entidades.Pasajero;
+import entidades.Reserva;
+import entidades.Viaje;
 
 public class PasajeroServ {
 	
@@ -27,6 +30,9 @@ public class PasajeroServ {
 
         Metadata metadata = new MetadataSources( standardRegistry )
                 .addAnnotatedClass(Pasajero.class)
+                .addAnnotatedClass(Reserva.class)
+                .addAnnotatedClass(Viaje.class)
+                .addAnnotatedClass(Conductor.class)
                 .getMetadataBuilder()
                 .build();
 
